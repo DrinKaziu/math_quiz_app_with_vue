@@ -28,7 +28,7 @@
     export default{
         data() {
             return {
-                question: 'Oops, an error ocurred :/',
+                question: 'Oops, something went wrong :/',
                 btnData: [
                     {correct: true, answer: 0},
                     {correct: false, answer: 0},
@@ -56,7 +56,7 @@
                         break;
                     default:
                         correctAnswer = 0;
-                        this.question = 'Oops, an Error occurred :/';
+                        this.question = 'Oops, something went wrong :/';
                 }
 
                 this.btnData[0].answer = this.generateRandomNumber(correctAnswer - 10, correctAnswer + 10, correctAnswer);
@@ -74,8 +74,7 @@
             },
             generateRandomNumber(min, max, except) {
                 const rndNumber = Math.round(Math.random() * (max - min)) + min;
-                console.log(min, max, rndNumber);
-                if (rndNumber == except) {
+                if (rndNumber === except) {
                     return this.generateRandomNumber(min, max, except);
                 }
                 return rndNumber;
